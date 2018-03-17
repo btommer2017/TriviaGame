@@ -1,0 +1,33 @@
+
+
+.multipleChoiceAnswer {
+    color:rgb(57, 57, 179);
+    font-size: 17px;
+    padding-bottom: 2px;
+}
+.triviaQuestion {
+    text-align: center;
+    font-size: 40px;
+}
+.formStyle {
+    width: 100%;
+    padding-left: 0%;
+}
+.pickCorrectAnswer {
+    margin-left: 3%;
+}
+#answer1 {
+    margin-left: 3%;
+}
+#answer2 {
+    margin-left: 3%;
+}
+#answer3 {
+    margin-left: 3%;
+}
+#answer4 {
+    margin-left: 3%;
+}
+#answer5 {
+    margin-left: 3%;
+}
