@@ -17,17 +17,26 @@
     margin-left: 3%;
 }
 #answer1 {
-    margin-left: 3%;
+   
 }
 #answer2 {
-    margin-left: 3%;
+    
 }
 #answer3 {
-    margin-left: 3%;
+  
 }
 #answer4 {
-    margin-left: 3%;
+   
 }
 #answer5 {
+   
+}
+.xx {
     margin-left: 3%;
+}
+
+.submitAnswerButton {
+    width: 20%;
+    height: 40px;
+    margin-left: 40%;
 }
