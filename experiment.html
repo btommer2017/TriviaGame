@@ -33,23 +33,23 @@
 
                             <div id="instructions">
                                 <form class="formStyle">
-                                    <h3 class="triviaQuestion">Who is the greatest NFL player ever?</h3>
+                                    <h3 class="triviaQuestion"  id="triviaQuestion">Who is the greatest NFL player ever?</h3>
                                     <br>
                                     <div class="xx">
-                                        <input type="radio" name="answer" id="answer1">
-                                        <label class="multipleChoiceAnswer">Bo Jackson</label>
+                                        <input type="radio" name="answer" id="radio1">
+                                        <label class="multipleChoiceAnswer"  id="answer1"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="answer2">
-                                        <label class="multipleChoiceAnswer">Tommy Kramer</label>
+                                        <input type="radio" name="answer" id="radio2">
+                                        <label class="multipleChoiceAnswer" id="answer2"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="answer3">
-                                        <label class="multipleChoiceAnswer">Art Monk</label>
+                                        <input type="radio" name="answer" id="radio3">
+                                        <label class="multipleChoiceAnswer" id="answer3"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="answer4">
-                                        <label class="multipleChoiceAnswer">Chris Doleman</label>
+                                        <input type="radio" name="answer" id="radio4">
+                                        <label class="multipleChoiceAnswer" id="answer4"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="answer5">
-                                        <label class="multipleChoiceAnswer">Ronnie Lott</label>
+                                        <input type="radio" name="answer" id="radio5">
+                                        <label class="multipleChoiceAnswer" id="answer5">Ronnie Lott</label>
                                         <br>
                                     </div>
                                     <button class="btn-md submitAnswerButton">
@@ -62,55 +62,12 @@
                     </div>
                     <br>
 
-                    <div id="classHeading3" class="panel-heading">
-                        <h2 class="panel-title"></h2>
-                    </div>
-
-                    <div id="panelBody" class="panel-body">
-                        <div class="col-lg-12">
-
-                            <div id="instructions">
-                                <form class="formStyle">
-                                    <h3 class="triviaQuestion">Who is the greatest NFL player ever?</h3>
-                                    <br>
-                                    <div class="xx">
-                                        <input type="radio" name="answer" id="answer1">
-                                        <label class="multipleChoiceAnswer">Bo Jackson</label>
-                                        <br>
-                                        <input type="radio" name="answer" id="answer2">
-                                        <label class="multipleChoiceAnswer">Tommy Kramer</label>
-                                        <br>
-                                        <input type="radio" name="answer" id="answer3">
-                                        <label class="multipleChoiceAnswer">Art Monk</label>
-                                        <br>
-                                        <input type="radio" name="answer" id="answer4">
-                                        <label class="multipleChoiceAnswer">Chris Doleman</label>
-                                        <br>
-                                        <input type="radio" name="answer" id="answer5">
-                                        <label class="multipleChoiceAnswer">Ronnie Lott</label>
-                                        <br>
-                                    </div>
-                                    <button class="btn btn-primary btn-md submitAnswerButton">
-                                        <span class="glyphicon"></span>Submit Answer</button>
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <br>
-
-                    <div id="classHeading3" class="panel-heading">
-                        <h2 class="panel-title"></h2>
-                    </div>
-
-                    <br>
-
-
+                                       
                     <div class="col-lg-12">
 
-                        <div id="submitAnswerBox">
-                            <h1 id="currentTotalScore">0</h1>
+                        <div>
+                            <h2 id="rightAnswers">0</h2>
+                            <h2 id="wrongAnswers">0</h2>
                         </div>
 
                     </div>
@@ -126,37 +83,60 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js">
-        var questionNumber = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8,
-            Question9, Question10
-        ];
+    <script type="text/javascript">
 
-        var Question1 = ["Who holds the record for most yards rushing in a season?"];
-        var Question2 = ["Who holds the record for most yards receiving in a season?"];
-        var Question3 = ["Who holds the record for most yards passing in a season?"];
-        var Question4 = ["Who holds the record for most yards rushing in a game?"];
-        var Question5 = ["Who holds the record for most yards receiving in a game?"];
-        var Question6 = ["Who holds the record for most yards passing in a game?"];
-        var Question7 = ["Who holds the record for most career yards rushing?"];
-        var Question8 = ["Who holds the record for most career yards receiving?"];
-        var Question9 = ["Who holds the record for most career yards passing?"];
-        var Question10 = ["Who is the greatest NFL player ever?"];
+        var Question0 = ["Who holds the record for most yards rushing in a season?"];
+        var Question1= ["Who holds the record for most yards receiving in a season?"];
+        var Question2 = ["Who holds the record for most yards passing in a season?"];
+        var Question3 = ["Who holds the record for most yards rushing in a game?"];
+        var Question4 = ["Who holds the record for most yards receiving in a game?"];
+        var Question5 = ["Who holds the record for most yards passing in a game?"];
+        var Question6 = ["Who holds the record for most career yards rushing?"];
+        var Question7 = ["Who holds the record for most career yards receiving?"];
+        var Question8 = ["Who holds the record for most career yards passing?"];
+        var Question9 = ["Who is the greatest NFL player ever?"];
+
+        var questionNumber = [Question0, Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8,
+            Question9];
+
+// index[0-4] are the possible answers, index[5] holds the index answer for each question, index[6] gives a brief answer to the user
+        var triviaAnswer0 = ["Eric Dickerson", "Adrian Peterson", "Jamal Lewis", "OJ Simpson", "Terrell Davis", 0, "In 1984, Los Angeles Rams Eric Dickerson set the single season rushing record with 2105 yards"];
+        var triviaAnswer1 = ["Calvin Johnson", "Randy Moss", "Art Monk", "Jerry Rice", "Julio Jones", 0, "In 2012, Detroit Lions receiver Calvin Johnson set the single season receiving yards record with 1964 yards"];
+        var triviaAnswer2 = ["Tom Brady", "Drew Brees", "Peyton Manning", "Dan Marino", "Joe Montana", 2, "In 2013, Peyton Manning of the Denver Broncos set the single season passing yards record with an incredible 5477 yards"];
+        var triviaAnswer3 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk", 1, "Adrian Peterson set the single game rushing record of 296 yards in 2007.  He broke the previous record of 295 yards held by Jamal Lewis"];
+        var triviaAnswer4 = ["Calvin Johnson", "Stephone Paige", "Julio Jones", "Willie 'Flipper' Anderson", "Jerry Rice", 3, "In 1989, Willie 'Flipper' Anderson had 336 yards receiving to set the single game receiving yards record"];
+        var triviaAnswer5 = ["Mathew Stafford", "Boomer Esiason", "Warren Moon", "Matt Shaub", "Norm Van Brocklin", 4, "Norm Van Brocklin holds the record of 554 passing yards in a single game"];
+        var triviaAnswer6 = ["Barry Sanders", "Curtis Martin", "Ladanian Tomlinson", "Emmitt Smith", "Walter Payton", 3, "blah blah blah"];
+        var triviaAnswer7 = ["Jerry Rice", "Terrell Owens", "Larry Fitzgerald", "Randy Moss", "Isaac Bruce", 0, "blah blah blah"];
+        var triviaAnswer8 = ["Brett Favre", "Peyton Manning", "Drew Brees", "Dan Marino", "John Elway", 1, "Peyton Manning holds the record of "];
+        var triviaAnswer9 = ["Randy Moss", "Brett Favre", "Bo Jackson", "Peyton Manning", "Tom Brady", 2, "Bo Jackson is the greatest player ever"];
+        
+        var triviaAnswers = [triviaAnswer0, triviaAnswer1, triviaAnswer2, triviaAnswer3, triviaAnswer4, triviaAnswer5, triviaAnswer6,
+            triviaAnswer7, triviaAnswer8, triviaAnswer9]
+
+//         console.log(triviaAnswer1);
+//         console.log(triviaAnswers[2]);
+//         for (i = 0; i < triviaAnswers.length; i++) {
+//     console.log(triviaAnswers[i]); "<br>";
+// }
+//         for (i = 0; i < questionNumber.length; i++) {
+//     console.log(questionNumber[i]); "<br>";
+// }
+for (i = 0; i < questionNumber.length; i++) {
+// console.log(questionNumber[i] + " " + triviaAnswers[i][triviaAnswers[i][5]]);
+console.log(questionNumber[i] + " " + triviaAnswers[i][triviaAnswers[i][5]] +": "+ triviaAnswers[i][6]);
+}
+
+ document.getElementById("triviaQuestion").innerHTML =  questionNumber[9];
+ document.getElementById("answer1").innerHTML = triviaAnswer9[0];
+ document.getElementById("answer2").innerHTML = triviaAnswer9[1];
+ document.getElementById("answer3").innerHTML = triviaAnswer9[2];
+ document.getElementById("answer4").innerHTML = triviaAnswer9[3];
+ document.getElementById("answer5").innerHTML = triviaAnswer9[4];
+     
 
 
-        var triviaAnswers = [triviaAnswer1, triviaAnswer2, triviaAnswer3, triviaAnswer4, triviaAnswer5, triviaAnswer6,
-            triviaAnswer7, triviaAnswer8, triviaAnswer9, triviaAnswer10
-        ]
-
-        var triviaAnswer1 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer2 = ["Jerry Rice", "Randy Moss", "Art Monk", "Chris Carter", "Julio Jones"];
-        var triviaAnswer3 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer4 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer5 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer6 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer7 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer8 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer9 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
-        var triviaAnswer10 = ["Eric Dickerson", "Adrian Peterson", "Ladanian Tomlinson", "OJ Simpson", "Marshal Faulk"];
+// foy
     </script>
 </body>
 

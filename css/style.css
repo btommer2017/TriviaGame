@@ -3,7 +3,8 @@
 .multipleChoiceAnswer {
     color:rgb(57, 57, 179);
     font-size: 17px;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
+    padding-left: 3px;
 }
 .triviaQuestion {
     text-align: center;
@@ -16,7 +17,7 @@
 .pickCorrectAnswer {
     margin-left: 3%;
 }
-#answer1 {
+/* #answer1 {
    
 }
 #answer2 {
@@ -30,7 +31,7 @@
 }
 #answer5 {
    
-}
+} */
 .xx {
     margin-left: 3%;
 }
