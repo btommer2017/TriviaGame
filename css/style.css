@@ -3,7 +3,7 @@
 .multipleChoiceAnswer {
     color:rgb(57, 57, 179);
     font-size: 17px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     padding-left: 3px;
 }
 .triviaQuestion {
@@ -36,8 +36,9 @@
     margin-left: 3%;
 }
 
-.submitAnswerButton {
+#submitAnswerButton {
     width: 20%;
     height: 40px;
     margin-left: 40%;
+    margin-top: 20px;
 }

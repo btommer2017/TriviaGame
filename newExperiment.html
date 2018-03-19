@@ -128,12 +128,7 @@
 beginQuiz = function(){
     console.log("HELLO WORLD beginQuiz function just started again");
     i++;
-    if (i>9){
-        alert("Quiz is OVER!!!");
-        endQuiz();
-    }
-    if (i<10){
-    $('input[name="answer"]').prop('checked', false);
+    $('input[id="radio0"]').attr('checked', false);
     document.getElementById("triviaQuestion").innerHTML = questionNumber[i];
     document.getElementById("answer0").innerHTML = triviaAnswers[i][0];
     document.getElementById("answer1").innerHTML = triviaAnswers[i][1];
@@ -143,148 +138,111 @@ beginQuiz = function(){
     realAnswer= triviaAnswers[i][5];
     console.log(realAnswer + " " + triviaAnswers[i][6]);
     n=0;
-}}
-endQuiz = function(){
-    $('input[name="answer"]').prop('checked', false);
-    document.getElementById("triviaQuestion").innerHTML = "Thanks for taking the NFL CHALLENGE QUIZ!";
-    document.getElementById("answer0").innerHTML ="";
-    document.getElementById("answer1").innerHTML ="";
-    document.getElementById("answer2").innerHTML ="";
-    document.getElementById("answer3").innerHTML ="";
-    document.getElementById("answer4").innerHTML ="";
+}
 
-setTimeout(function () {
-    correct = 0;
-       wrong = 0; 
-       i=-1;
+
+        checkAnswer = function() {
+            if ((document.getElementById('radio0').checked)) {
+        console.log('radio0 is checked!!');
+        checkedAnswer=0;
+        if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
+        correct ++;
+        console.log("Correct Answers now = " + correct);
+        setTimeout(function () {
         beginQuiz(i);
-            }, 10000);   }
-
-////###########################CODE NEEDED IF NO LOOP##########################
-//         checkAnswer = function() {
-    //             if ((document.getElementById('radio0').checked)) {
-        //         console.log('radio0 is checked!!');
-        //         checkedAnswer=0;
-        //         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
-        //         correct ++;
-        //         console.log("Correct Answers now = " + correct);
-        //         setTimeout(function () {
-            //         beginQuiz(i);
-            //             }, 500);   }
-            //         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
-            //         wrong ++;
-            //         console.log("Wrong Answers now = " + wrong);
-            //         setTimeout(function () {
-                //         beginQuiz(i);
-                //             }, 500);    }}  
-                
-                //             if ((document.getElementById('radio1').checked)) {
-                    //                 console.log('radio1 is checked!!');
-                    //         checkedAnswer=1;
-                    //         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
-                    //         correct ++;
-                    //         console.log("Correct Answers now = " + correct);
-                    //         setTimeout(function () {
-                        //         beginQuiz(i);
-                        //             }, 500);   }  
-                        //         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
-                        //         wrong ++;
-                        //         console.log("Wrong Answers now = " + wrong);
-                        //         setTimeout(function () {
-                            //         beginQuiz(i);
-                            //             },  500);   }}
-                            
-                            //             if ((document.getElementById('radio2').checked)) {
-                                //                 console.log('radio2 is checked!!');
-                                //         checkedAnswer=2;
-//         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
-//         correct ++;
-//         console.log("Correct Answers now = " + correct);
-//         setTimeout(function () {
-    //         beginQuiz(i);
-    //             }, 500);   } 
-    //         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
-//         wrong ++;
-//         console.log("Wrong Answers now = " + wrong);
-//         setTimeout(function () {
-//         beginQuiz(i);
-//             },  500);   } } 
-
-//             if ((document.getElementById('radio3').checked)) {
-    //                 console.log('radio3 is checked!!');
-//         checkedAnswer=3;
-//         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
-//         correct ++;
-//         console.log("Correct Answers now = " + correct);
-//         setTimeout(function () {
-    //         beginQuiz(i);
-    //             },  500);   }
-    //         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
-    //         wrong ++;
-    //         console.log("Wrong Answers now = " + wrong);
-    //         setTimeout(function () {
-        //         beginQuiz(i);
-        //             },  500);   }}
-        
-        //             if ((document.getElementById('radio4').checked)) {
-            //                 console.log('radio4 is checked!!');
-            //         checkedAnswer=4;
-            //         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
-            //         correct ++;
-            //         console.log("Correct Answers now = " + correct);
-            //         setTimeout(function () {
-                //         beginQuiz(i);
-                //             },  500);   }
-                //         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
-                //         wrong ++;
-                //         console.log("Wrong Answers now = " + wrong);
-                //         setTimeout(function () {
-                    //         beginQuiz(i);
-                    //             },  500);   }}
-                    // }                /////END OF FUNCTION checkAnswer()
-                    
-                    
-                    // checkAnswer = function() {
-                        //         for (let n=0; n<5; n++){
-                            //             if ((document.getElementById("radio"+n).checked)) {
-                                //         console.log("radio"+n + " is checked!!");
-                                //         checkedAnswer = n };
-                                //         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
-                                //         correct ++;
-                                //         console.log("Correct Answers now = " + correct)  
-                                //          setTimeout(function () {
-                                    //      beginQuiz(i);
-                                    //           },  500);   }
-                                    //         return; };
-                                    
-                                    //         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
-                                    //         wrong ++;
-                                    //         console.log("Wrong Answers now = " + wrong) 
-                                    //          setTimeout(function () {
-                                        //       beginQuiz(i);
-                                        //          },  500);   }
-                                        //         return; };
-                                        //              }}
-                                        ////###########################CODE NEEDED IF NO LOOP##########################
-                                        
-                                        
-                                        checkAnswer = function() {
-                                            for (let n=0; n<5; n++){
-                                                if ((document.getElementById("radio"+n).checked)) {
-                                                    console.log("radio"+n + " is checked!!");
-                                                    checkedAnswer=n;
-                                                    if (realAnswer === checkedAnswer)  {document.getElementById("triviaQuestion").innerHTML = "CORRECT!";
-                                                    correct ++;
-                                                    console.log("Correct Answers now = " + correct);
-                                                    setTimeout(function () {
-                                                        beginQuiz(i);
-                                                    }, 1000);   }
-        if (realAnswer != checkedAnswer) {document.getElementById("triviaQuestion").innerHTML = "WRONG";
+            }, 2000);   }
+        if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
         wrong ++;
         console.log("Wrong Answers now = " + wrong);
         setTimeout(function () {
         beginQuiz(i);
-            }, 1000);    }} } }
+            }, 2000);    }}  
+ 
+            if ((document.getElementById('radio1').checked)) {
+                console.log('radio1 is checked!!');
+        checkedAnswer=1;
+        if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
+        correct ++;
+        console.log("Correct Answers now = " + correct);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   }  
+        if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
+        wrong ++;
+        console.log("Wrong Answers now = " + wrong);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   }}
+ 
+            if ((document.getElementById('radio2').checked)) {
+                console.log('radio2 is checked!!');
+        checkedAnswer=2;
+        if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
+        correct ++;
+        console.log("Correct Answers now = " + correct);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   } 
+        if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
+        wrong ++;
+        console.log("Wrong Answers now = " + wrong);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   } } 
+ 
+            if ((document.getElementById('radio3').checked)) {
+                console.log('radio3 is checked!!');
+        checkedAnswer=3;
+        if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
+        correct ++;
+        console.log("Correct Answers now = " + correct);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   }
+        if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
+        wrong ++;
+        console.log("Wrong Answers now = " + wrong);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   }}
+ 
+            if ((document.getElementById('radio4').checked)) {
+                console.log('radio4 is checked!!');
+        checkedAnswer=4;
+        if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
+        correct ++;
+        console.log("Correct Answers now = " + correct);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   }
+        if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
+        wrong ++;
+        console.log("Wrong Answers now = " + wrong);
+        setTimeout(function () {
+        beginQuiz(i);
+            }, 2000);   }}
+}  /////END OF FUNCTION checkAnswer()
+
+
+// checkAnswer = function() {
+//         for (let n=0; n<5; n++){
+//             if ((document.getElementById("radio"+n).checked)) {
+//         console.log("radio"+n + " is checked!!");
+//         checkedAnswer = n };
+//         if (realAnswer === checkedAnswer) {alert("YOU ARE CORRECT!");
+//         correct ++;
+//         console.log("Correct Answers now = " + correct)  
+//         beginQuiz();
+//         return; };
+        
+//         if (realAnswer != checkedAnswer) {alert("YOU ARE WRONG!!!!");
+//         wrong ++;
+//         console.log("Wrong Answers now = " + wrong) 
+//         beginQuiz();
+//         return; };
+//              }}
+
+
 
 $("#submitAnswerButton").on("click", checkAnswer);
      

@@ -31,59 +31,72 @@
                     <div id="panelBody" class="panel-body">
                         <div class="col-md-16">
 
-                            <div id="instructions">
+                            <div>
                                 <form class="formStyle">
                                     <h3 class="triviaQuestion"  id="triviaQuestion">Who is the greatest NFL player ever?</h3>
                                     <br>
                                     <div class="xx">
-                                        <input type="radio" name="answer" id="radio1">
-                                        <label class="multipleChoiceAnswer"  id="answer1"></label>
+                                        <input type="radio"  class="radioAnswer" name="answer" id="radio0" value="0">
+                                        <label class="multipleChoiceAnswer"  id="answer0"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="radio2">
+                                        <input type="radio" value="1"  class="radioAnswer"  name="answer" id="radio1">
+                                        <label class="multipleChoiceAnswer" id="answer1"></label>
+                                        <br>
+                                        <input type="radio" value="2"  class="radioAnswer"  name="answer" id="radio2">
                                         <label class="multipleChoiceAnswer" id="answer2"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="radio3">
+                                        <input type="radio" value="3"  class="radioAnswer"  name="answer" id="radio3">
                                         <label class="multipleChoiceAnswer" id="answer3"></label>
                                         <br>
-                                        <input type="radio" name="answer" id="radio4">
-                                        <label class="multipleChoiceAnswer" id="answer4"></label>
-                                        <br>
-                                        <input type="radio" name="answer" id="radio5">
-                                        <label class="multipleChoiceAnswer" id="answer5">Ronnie Lott</label>
+                                        <input type="radio" value="4"  class="radioAnswer"  name="answer" id="radio4">
+                                        <label class="multipleChoiceAnswer" id="answer4">Ronnie Lott</label>
                                         <br>
                                     </div>
-                                    <button class="btn-md submitAnswerButton">
-                                        Submit Answer</button>
                                 </form>
-
+                                
+                                <button class="btn-md" id="submitAnswerButton">
+                                    Submit Answer</button>
                             </div>
 
                         </div>
                     </div>
                     <br>
-
-                                       
+               
                     <div class="col-lg-12">
-
+                        
                         <div>
                             <h2 id="rightAnswers">0</h2>
                             <h2 id="wrongAnswers">0</h2>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+        window.onload = function(){
+            i = 0;
+            document.getElementById("triviaQuestion").innerHTML = questionNumber[i];
+        document.getElementById("answer0").innerHTML = answerList[i][0];
+        document.getElementById("answer1").innerHTML = answerList[i][1];
+        document.getElementById("answer2").innerHTML = answerList[i][2];
+        document.getElementById("answer3").innerHTML = answerList[i][3];
+        document.getElementById("answer4").innerHTML = answerList[i][4];
+            // beginQuiz();
+        }
+        
+        var correct = 0;
+        var wrong = 0;
+        radioButtonSelected= false;
+        currentAnswer =[];
 
 
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
 
         var Question0 = ["Who holds the record for most yards rushing in a season?"];
         var Question1= ["Who holds the record for most yards receiving in a season?"];
@@ -96,8 +109,7 @@
         var Question8 = ["Who holds the record for most career yards passing?"];
         var Question9 = ["Who is the greatest NFL player ever?"];
 
-        var questionNumber = [Question0, Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8,
-            Question9];
+        var questionNumber = [Question0, Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9];
 
 // index[0-4] are the possible answers, index[5] holds the index answer for each question, index[6] gives a brief answer to the user
         var triviaAnswer0 = ["Eric Dickerson", "Adrian Peterson", "Jamal Lewis", "OJ Simpson", "Terrell Davis", 0, "In 1984, Los Angeles Rams Eric Dickerson set the single season rushing record with 2105 yards"];
@@ -111,32 +123,81 @@
         var triviaAnswer8 = ["Brett Favre", "Peyton Manning", "Drew Brees", "Dan Marino", "John Elway", 1, "Peyton Manning holds the record of "];
         var triviaAnswer9 = ["Randy Moss", "Brett Favre", "Bo Jackson", "Peyton Manning", "Tom Brady", 2, "Bo Jackson is the greatest player ever"];
         
-        var triviaAnswers = [triviaAnswer0, triviaAnswer1, triviaAnswer2, triviaAnswer3, triviaAnswer4, triviaAnswer5, triviaAnswer6,
+        var answerList = [triviaAnswer0, triviaAnswer1, triviaAnswer2, triviaAnswer3, triviaAnswer4, triviaAnswer5, triviaAnswer6,
             triviaAnswer7, triviaAnswer8, triviaAnswer9]
 
-//         console.log(triviaAnswer1);
-//         console.log(triviaAnswers[2]);
-//         for (i = 0; i < triviaAnswers.length; i++) {
-//     console.log(triviaAnswers[i]); "<br>";
+// for (i = 0; i < questionNumber.length; i++) {
+//     console.log(questionNumber[i] + " " + answerList[i][answerList[i][5]] +": "+ answerList[i][6]);
 // }
-//         for (i = 0; i < questionNumber.length; i++) {
-//     console.log(questionNumber[i]); "<br>";
-// }
-for (i = 0; i < questionNumber.length; i++) {
+
+
 // console.log(questionNumber[i] + " " + triviaAnswers[i][triviaAnswers[i][5]]);
-console.log(questionNumber[i] + " " + triviaAnswers[i][triviaAnswers[i][5]] +": "+ triviaAnswers[i][6]);
+checkAnswer = function(){
+    
+    for (n = 0; n < 5 ; n++) {
+    if(document.getElementById('radio'+[n]).checked) {
+     console.log("You have chosen answer " + [n]);
+     console.log(currentAnswer + " this is the console.log of the current answer, what does it equal?")
+     if (currentAnswer=n){alert("You're Correct!!!!!")   }
+}
+else {console.log('wrong answer');
+   
+
+}
+}
+};
+checkIfButtonPressed = function(){
+if ((document.getElementsByName('answer').checked) === false) {
+alert('a button is not checked, please select an answer!');
+}
+else if  ((document.getElementsByName('answer').checked) === true){
+    alert("You have selected a button!");
+}
 }
 
- document.getElementById("triviaQuestion").innerHTML =  questionNumber[9];
- document.getElementById("answer1").innerHTML = triviaAnswer9[0];
- document.getElementById("answer2").innerHTML = triviaAnswer9[1];
- document.getElementById("answer3").innerHTML = triviaAnswer9[2];
- document.getElementById("answer4").innerHTML = triviaAnswer9[3];
- document.getElementById("answer5").innerHTML = triviaAnswer9[4];
-     
+beginQuiz = function() {
+    for (var i = 0; i < questionNumber.length; i++) {
+        radioButtonSelected = false;
+        document.getElementById("triviaQuestion").innerHTML = questionNumber[i];
+        document.getElementById("answer0").innerHTML = answerList[i][0];
+        document.getElementById("answer1").innerHTML = answerList[i][1];
+        document.getElementById("answer2").innerHTML = answerList[i][2];
+        document.getElementById("answer3").innerHTML = answerList[i][3];
+        document.getElementById("answer4").innerHTML = answerList[i][4];
+ currentAnswer = answerList[i][answerList[i][5]];
+if (radioButtonSelected = false){
+    checkIfButtonPressed();
+}
+// if (!$("input[name='answer']:checked").val()) {
+//     alert('button not pressed!');
+//     checkIfButtonPressed();
+// }
+// else {
+//   alert('One of the radio buttons is checked!');
+
+// }
+
+ 
+console.log("HELLO WORLD THIS IS THE CURRENT ANSWER For Question Number " + [i] + "  is " + currentAnswer);
+
+}
+}
 
 
-// foy
+
+
+
+// if (document.getElementById('radio0').checked) && radio0.value {
+//   //radio1 button is checked
+// }else if(document.getElementById('radio1').checked) {
+//   //radio1 button is checked
+// }
+
+$("#submitAnswerButton").on("click", checkAnswer);
+
+
+document.getElementsByName
+
     </script>
 </body>
 
